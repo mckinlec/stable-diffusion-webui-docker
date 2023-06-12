@@ -23,7 +23,16 @@ DEFAULT_OUTDIRS = {
 RE_VALID_OUTDIR = re.compile(r"(^/output(/\.?[\w\-\_]+)+/?$)|(^\s?$)")
 
 DEFAULT_OTHER = {
-  "font": "DejaVuSans.ttf",
+ "font": "DejaVuSans.ttf",
+    "restore_config_state_file": "",
+    "sd_model_checkpoint": "v1-5-pruned-emaonly.ckpt [cc6cb27103]",
+    "sd_checkpoint_hash": "cc6cb27103417325ff94f52b7a5d2dde45a7515b25c255d8e396c90014281516",
+    "samples_filename_pattern": "[date]-[model_name]-[prompt_words]",
+    "enable_pnginfo": False,
+    "save_txt": True,
+    "use_save_to_dirs_for_ui": True,
+    "directories_filename_pattern": "manual_save-[date]",
+    "directories_max_prompt_words": 10,
 }
 
 def dict_to_json_file(target_file: str, data: dict):
