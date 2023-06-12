@@ -41,8 +41,8 @@ RUN --mount=type=cache,target=/cache --mount=type=cache,target=/root/.cache/pip 
 
 
 RUN --mount=type=cache,target=/root/.cache/pip \
-  #git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && \
-  git clone https://github.com/mckinlec/stable-diffusion-webui.git && \
+ git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && \
+  #git clone https://github.com/mckinlec/stable-diffusion-webui.git && \
   cd stable-diffusion-webui && \
   #git reset --hard 20ae71faa8ef035c31aa3a410b707d792c8203a3 && \
   pip install -r requirements_versions.txt
@@ -75,8 +75,8 @@ ENV LD_PRELOAD=libtcmalloc.so
 ARG SHA=20ae71faa8ef035c31aa3a410b707d792c8203a3
 RUN --mount=type=cache,target=/root/.cache/pip \
   cd stable-diffusion-webui && \
-  #git fetch && \
-  #git reset --hard ${SHA} && \
+  git fetch && \
+  git reset --hard ${SHA} && \
   pip install -r requirements_versions.txt
 
 COPY . /docker
