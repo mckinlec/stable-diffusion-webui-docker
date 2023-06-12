@@ -1,5 +1,10 @@
 version: '3.9'
 
+
+networks:
+  semafor:
+    external: true
+
 x-base_service: &base_service
     ports:
       - "7860:7860"
@@ -31,6 +36,8 @@ services:
     image: sd-auto:58
     environment:
       - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access --api
+    networks:
+      - semafor
 
   auto-cpu:
     <<: *automatic
@@ -38,6 +45,8 @@ services:
     deploy: {}
     environment:
       - CLI_ARGS=--no-half --precision full --allow-code --enable-insecure-extension-access --api
+    networks:
+      - semafor
 
   invoke: &invoke
     <<: *base_service
