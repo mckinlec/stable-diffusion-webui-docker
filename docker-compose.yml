@@ -35,7 +35,7 @@ services:
     build: ./services/AUTOMATIC1111
     image: sd-auto:58
     environment:
-      - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access --api
+      - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access --api --api-log
     networks:
       - semafor
 
@@ -44,7 +44,7 @@ services:
     profiles: ["auto-cpu"]
     deploy: {}
     environment:
-      - CLI_ARGS=--no-half --precision full --allow-code --enable-insecure-extension-access --api
+      - CLI_ARGS=--no-half --precision full --allow-code --enable-insecure-extension-access --api --api-log
     networks:
       - semafor
 
